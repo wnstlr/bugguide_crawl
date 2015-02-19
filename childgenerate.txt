@@ -1,0 +1,7 @@
+soup = BeautifulSoup.BeautifulSoup(html)
+for child in soup.recursiveChildGenerator():
+    name = getattr(child, "name", None)
+    if name is not None:
+        print name
+    elif not child.isspace(): # leaf node, don't print spaces
+        print child
